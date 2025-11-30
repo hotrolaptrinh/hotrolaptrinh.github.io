@@ -1,6 +1,24 @@
 @import "tailwindcss";
-@plugin "daisyui" {
+/* @plugin "daisyui" {
   themes: winter --default, dracula --prefersdark;
+} */
+
+/* Custom styles from template */
+body {
+  font-family: 'Inter', sans-serif;
+}
+.gradient-text {
+  background: linear-gradient(to right, #2563eb, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Custom scrollbar for chat */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* Remove default outlines on form controls */

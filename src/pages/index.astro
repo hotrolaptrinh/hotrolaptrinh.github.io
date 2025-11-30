@@ -1,38 +1,36 @@
 ---
-import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Hero from "../components/Hero.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import BackToTop from "../components/BackToTop.astro";
-import { PROJECTS_PER_PAGE } from "../consts";
-const allProjects = await getCollection("projects");
-const projects = allProjects
-  .filter(p => p.data.published)
-  .sort((a,b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 12);
+import App from "../components/App";
+import { getCollection } from "astro:content";
+import type { Product } from "../types";
+
+const projects = await getCollection("projects");
+
+const products: Product[] = projects.map((project) => ({
+  id: project.slug,
+  title: project.data.title,
+  price: project.data.sale || project.data.price || 0,
+  originalPrice: project.data.price || 0,
+  description: project.body || "Mô tả đang cập nhật...",
+  category:
+    project.data.category === "web"
+      ? "Website"
+      : project.data.category === "app"
+        ? "Mobile App"
+        : project.data.category === "script"
+          ? "AI/Data"
+          : "Desktop",
+  techStack: project.data.tags || [],
+  image: project.data.thumbnail || "https://via.placeholder.com/800x450",
+  rating: 4.5,
+  sales: 0,
+  author: "Admin",
+  desc: project.data.desc || "Mô tả đang cập nhật...",
+  listthumbnail: project.data.listthumbnail || [],
+  demo: project.data.demo || "",
+}));
 ---
-<Base title="Trang chủ">
-  <Fragment slot="header"><Header /></Fragment>
 
-  <Hero />
-
-  <section id="projects" class=" fade-in">
-    <h2 class="text-2xl font-bold mb-6">Danh sách dự án</h2>
-    <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {projects.map((p) => (
-        <a href={`${Astro.site?.pathname}projects/${p.slug}`}><ProjectCard {...p.data} /></a>
-      ))}
-    </div>
-
-    <div class="flex justify-center my-3">
-      <a href="./projects/" class="btn btn-primary" title="Xem tất cả dự án">Xem tất cả dự án</a>
-    </div>
-  </section>
-
-  <Fragment slot="footer">
-    <BackToTop />
-    <Footer />
-  </Fragment>
+<Base title="QRPay - Giải pháp thanh toán thông minh">
+  <App client:only="react" products={products} />
 </Base>
