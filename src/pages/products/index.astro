@@ -1,13 +1,10 @@
 ---
-import Base from "../layouts/Base.astro";
-import Navbar from "../components/Navbar.tsx";
-import Hero from "../components/Hero.tsx";
-import Features from "../components/Features.tsx";
-import ProductList from "../components/ProductList.tsx";
-import HomeExtra from "../components/HomeExtra.tsx";
-import Footer from "../components/Footer.tsx";
+import Base from "../../layouts/Base.astro";
+import AllProducts from "../../components/AllProducts.tsx";
+import Navbar from "../../components/Navbar.tsx";
+import Footer from "../../components/Footer.tsx";
 import { getCollection } from "astro:content";
-import type { Product } from "../types";
+import type { Product } from "../../types";
 
 const projects = await getCollection("projects");
 
@@ -39,18 +36,11 @@ const products: Product[] = projects.map((project) => ({
 }));
 ---
 
-<Base title="QRPay - Giải pháp thanh toán thông minh">
+<Base title="Tất cả sản phẩm - CodeStore">
     <div class="min-h-screen bg-white font-sans text-gray-900">
         <Navbar client:load />
-        <main>
-            <div class="hidden md:block">
-                <Hero client:load />
-                <Features client:load />
-            </div>
-            <div class="pt-24 md:pt-0">
-                <ProductList client:load products={products} />
-            </div>
-            <HomeExtra client:load />
+        <main class="pt-20">
+            <AllProducts client:load products={products} />
         </main>
         <Footer client:load />
     </div>

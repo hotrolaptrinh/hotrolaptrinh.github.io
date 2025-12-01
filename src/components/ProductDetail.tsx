@@ -10,10 +10,9 @@ import Markdown from 'react-markdown';
 
 interface ProductDetailProps {
   product: Product;
-  onBack: () => void;
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
+const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [activeTab, setActiveTab] = useState<'desc' | 'setup' | 'changelog'>('desc');
   const [selectedImage, setSelectedImage] = useState(product.image);
   const [startIndex, setStartIndex] = useState(0);
@@ -52,13 +51,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
       <div className="min-h-screen bg-gray-50 pt-24 pb-12 animate-fade-in">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb & Back */}
-          <button
-            onClick={onBack}
-            className="flex items-center text-gray-500 hover:text-indigo-600 mb-6 transition-colors font-medium group"
+          <a
+            href="/products"
+            className="flex items-center text-gray-500 hover:text-indigo-600 mb-6 transition-colors font-medium group inline-flex"
           >
             <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
             Quay lại danh sách
-          </button>
+          </a>
 
           <div className="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="bg-white grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
@@ -274,7 +273,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
 
               <div className="p-4 lg:p-6 bg-white min-h-[300px]">
                 {activeTab === 'desc' && (
-                  <div className="max-w-4xl" id="desc">
+                  <div id="desc">
                     <div className="text-gray-600 mb-6 leading-relaxed">
                       <Markdown>{product.description}</Markdown>
                     </div>

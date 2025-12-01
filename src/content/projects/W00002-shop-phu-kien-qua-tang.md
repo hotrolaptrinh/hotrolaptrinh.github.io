@@ -1,7 +1,7 @@
 ---
 id: 2
 title: "Web Quản lý cửa hàng bán phụ kiện quà tặng"
-date: 2025-11-30
+date: 2025-11-25
 category: "web"
 price: 250000
 sale: 225000
@@ -159,6 +159,7 @@ Nhận thông báo realtime khi có đơn mới hoặc bình luận cần duyệ
 Theo dõi nhật ký hoạt động (log).
 
 2. YÊU CẦU PHI CHỨC NĂNG
+
 2.1. Tốc độ tải & hiệu năng
 Tối ưu cache, index, phân trang, lazy-load hình ảnh.
 

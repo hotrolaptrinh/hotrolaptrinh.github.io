@@ -1,17 +1,22 @@
 ---
-import Base from "../layouts/Base.astro";
-import Navbar from "../components/Navbar.tsx";
-import Hero from "../components/Hero.tsx";
-import Features from "../components/Features.tsx";
-import ProductList from "../components/ProductList.tsx";
-import HomeExtra from "../components/HomeExtra.tsx";
-import Footer from "../components/Footer.tsx";
+import Base from "../../layouts/Base.astro";
+import ProductDetail from "../../components/ProductDetail.tsx";
+import Navbar from "../../components/Navbar.tsx";
+import Footer from "../../components/Footer.tsx";
 import { getCollection } from "astro:content";
-import type { Product } from "../types";
+import type { Product } from "../../types";
 
-const projects = await getCollection("projects");
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
 
-const products: Product[] = projects.map((project) => ({
+const { project } = Astro.props;
+
+const product: Product = {
     id: project.slug,
     title: project.data.title,
     price: project.data.sale || project.data.price || 0,
@@ -36,21 +41,14 @@ const products: Product[] = projects.map((project) => ({
     setup: project.data.setup || [],
     changelog: project.data.changelog || [],
     require: project.data.require || [],
-}));
+};
 ---
 
-<Base title="QRPay - Giải pháp thanh toán thông minh">
+<Base title={`${product.title} - CodeStore`}>
     <div class="min-h-screen bg-white font-sans text-gray-900">
         <Navbar client:load />
         <main>
-            <div class="hidden md:block">
-                <Hero client:load />
-                <Features client:load />
-            </div>
-            <div class="pt-24 md:pt-0">
-                <ProductList client:load products={products} />
-            </div>
-            <HomeExtra client:load />
+            <ProductDetail client:load product={product} />
         </main>
         <Footer client:load />
     </div>

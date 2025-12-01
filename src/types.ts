@@ -22,9 +22,9 @@ export interface Product {
   desc: string;
   images: string[];
   demo: string;
-  require: string;
-  setup: string[];
-  changelog: string;
+  require: string[];
+  setup: { title: string; description: string }[];
+  changelog: string[];
 }
 
 export interface Feature {

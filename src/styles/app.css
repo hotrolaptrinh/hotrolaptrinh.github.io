@@ -65,6 +65,13 @@ em {
   font-style: italic;
 }
 
+#desc {
+  text-align: justify;
+}
+#desc img {
+  max-width: 100%;
+  align-items: center;
+}
 #desc h1,#desc h2,#desc h3 {
   font-weight: var(--font-weight-bold)  ;
 }
@@ -78,5 +85,24 @@ em {
 
 #desc h3 {
   font-size: var(--text-sm);
+}
+
+#desc ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#desc li {
+  margin-left: 20px;
+}
+
+#desc ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
 }
   
