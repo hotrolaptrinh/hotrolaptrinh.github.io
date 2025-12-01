@@ -26,8 +26,11 @@ const products: Product[] = projects.map((project) => ({
   sales: 0,
   author: "Admin",
   desc: project.data.desc || "Mô tả đang cập nhật...",
-  listthumbnail: project.data.listthumbnail || [],
+  images: project.data.images || [],
   demo: project.data.demo || "",
+  setup: project.data.setup || [],
+  changelog: project.data.changelog || [],
+  require: project.data.require || [],
 }));
 ---
 

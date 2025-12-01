@@ -1,27 +1,52 @@
 ---
 id: 2
-title: "Full code + báo cáo website Laravel 10 quản lý cửa hàng bán phụ kiện quà tặng có hướng dẫn cài đặt"
+title: "Web Quản lý cửa hàng bán phụ kiện quà tặng"
 date: 2025-11-30
 category: "web"
 price: 250000
 sale: 225000
-thumbnail: "./img/2/screenshot.png"
-listthumbnail: [
-    "./img/2/screenshot.png",
-    "./img/2/admin_product-categories.png",
-    "./img/2/admin_products.png",
-    "./img/2/checkout.png",
-    "./img/2/products.png",
+thumbnail: "/img/2/screenshot.png"
+images: [
+    "/img/2/screenshot.png",
+    "/img/2/admin_product-categories.png",
+    "/img/2/admin_products.png",
+    "/img/2/checkout.png",
+    "/img/2/products.png",
 ]
 tags: ["php","mysql","laravel"]
 published: true
 desc: "Website thương mại điện tử bán phụ kiện và quà tặng xây dựng bằng Laravel 10 (PHP), MySQL, theo mô hình MVC, kèm tài liệu/báo cáo đầy đủ."
 demo: "https://www.youtube.com/watch?v=gkJFcilkEDw"
+
+setup:
+  - title: "Thiết lập môi trường"
+    description: |
+        Tạo file cấu hình `cp .env.example .env`
+
+        Cập nhật các biến trong **.env**: APP_NAME, APP_URL, DB_DATABASE, DB_USERNAME, DB_PASSWORD
+  - title: "Cài đặt phụ thuộc"
+    description: |
+        ```composer install```
+
+        ```npm install```
+  - title: "Generate key & build assets"
+    description: |
+        ```php artisan key:generate```
+        ```npm run build```
+  - title: "Khởi động ứng dụng"
+    description: |
+        ```php artisan serve```
+
+        Truy cập `http://localhost:8000`
+
+changelog: [ "v1.1: fix lỗi trang bán hàng","v1.0: fix lỗi trang bán hàng"]
+require: ["PHP >= 8.1","MySQL/MariaDB 10.4+ hoặc tương đương","Node.js 18+ và npm", "Composer 2.6+"]
 ---
 
-### Giao diện Người Dùng:
 # 1. YÊU CẦU CHỨC NĂNG
+
 ## 1.1. Quản lý sản phẩm & danh mục
+
 Hệ thống hỗ trợ đầy đủ nghiệp vụ về sản phẩm và danh mục:
 
 Thêm, sửa, xóa sản phẩm.
@@ -185,10 +210,9 @@ Facebook Catalog, Google Merchant
 
 ### HÌNH ẢNH DEMO
 
-![Demo 1](https://sharecode.vn/FilesUpload/CodeUpload/full-code-bao-cao-website-laravel-10-quan-ly-cua-hang-ban-phu-kien-qua-tang-co-huong-dan-cai-dat-104655.jpg)  
-![Demo 2](https://sharecode.vn/FilesUpload/CodeUpload/full-code-bao-cao-website-laravel-10-quan-ly-cua-hang-ban-phu-kien-qua-tang-co-huong-dan-cai-dat-104656.jpg)  
-![Demo 3](https://sharecode.vn/FilesUpload/CodeUpload/full-code-bao-cao-website-laravel-10-quan-ly-cua-hang-ban-phu-kien-qua-tang-co-huong-dan-cai-dat-104657.jpg)
-
-![Demo 4](https://sharecode.vn/FilesUpload/CodeUpload/full-code-bao-cao-website-laravel-10-quan-ly-cua-hang-ban-phu-kien-qua-tang-co-huong-dan-cai-dat-104658.jpg)
-
+![Demo 1](/img/2/screenshot.png)  
+![Demo 2](/img/2/admin_product-categories.png)  
+![Demo 3](/img/2/admin_products.png)  
+![Demo 4](/img/2/checkout.png)  
+![Demo 5](/img/2/products.png)
 ---

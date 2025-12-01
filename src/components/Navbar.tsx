@@ -57,17 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToShop, onLogoClick }) => {
                <a href="#" onClick={(e) => handleNavClick(e, 'shop')} className="hover:text-indigo-600 transition-colors">Đồ án mẫu</a>
             </div>
 
-            <div className="flex items-center gap-4 pl-6 border-l border-gray-200">
-               <button className="relative group p-2 hover:bg-gray-100 rounded-full transition-colors">
-                  <ShoppingCart size={24} className="text-gray-700 group-hover:text-indigo-600" />
-                  <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">
-                     {cartCount}
-                  </span>
-               </button>
-               <button className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all shadow-lg shadow-slate-900/20">
-                 Đăng nhập
-               </button>
-            </div>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -130,15 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToShop, onLogoClick }) => {
                   AI / Machine Learning
                 </a>
              </div>
-             
-             <div className="mt-8 pt-8 border-t border-gray-100">
-                <button className="w-full bg-indigo-600 text-white px-5 py-4 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 mb-4">
-                  Đăng nhập
-                </button>
-                <button className="w-full bg-white border border-gray-200 text-gray-700 px-5 py-4 rounded-xl font-bold text-lg">
-                  Đăng ký tài khoản
-                </button>
-             </div>
+
           </div>
         </div>
       )}

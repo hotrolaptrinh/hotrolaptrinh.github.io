@@ -13,14 +13,18 @@ export interface Product {
   price: number;
   originalPrice: number;
   description: string;
-  category: 'Website' | 'Mobile App' | 'Desktop' | 'AI/Data';
+  category: 'Website' | 'Mobile App' | 'Desktop' | 'AI/Data' | 'Script' | 'Game' | 'Other';
   techStack: string[];
   image: string;
   rating: number;
   sales: number;
   author: string;
   desc: string;
-  listthumbnail: string[];
+  images: string[];
+  demo: string;
+  require: string;
+  setup: string[];
+  changelog: string;
 }
 
 export interface Feature {

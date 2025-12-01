@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Facebook, Github, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Code2, MessageCircle, Facebook, Send,  Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -18,13 +18,14 @@ const Footer: React.FC = () => {
               Nền tảng cung cấp mã nguồn đồ án, bài tập lớn chất lượng cao cho sinh viên CNTT. Giúp bạn học code nhanh hơn, hiệu quả hơn.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-600"><Facebook size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-black"><Github size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-red-600"><Youtube size={20} /></a>
+
+              <a href="https://fb.me/kha1999" className="text-gray-400 hover:text-blue-600"><Facebook size={20} /></a>
+              <a href="https://zalo.me/358993264" className="text-gray-400 hover:text-black"><MessageCircle size={20} /></a>
+              <a href="http://t.me/hkit9x" className="text-gray-400 hover:text-red-600"><Send size={20} /></a>
             </div>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-bold text-gray-900 mb-4">Danh mục Code</h4>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="#" className="hover:text-indigo-600">Source Web Bán Hàng</a></li>
@@ -34,7 +35,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-bold text-gray-900 mb-4">Hỗ trợ sinh viên</h4>
             <ul className="space-y-2 text-sm text-gray-500">
               <li><a href="#" className="hover:text-indigo-600">Hướng dẫn cài đặt</a></li>
@@ -44,20 +45,20 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-bold text-gray-900 mb-4">Liên hệ Admin</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-indigo-600 mt-0.5" />
-                <span>Khu Công Nghệ Cao, Q9, TP.HCM</span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-indigo-600" />
-                <span>0988 888 888 (Zalo)</span>
+                <a href="https://zalo.me/358993264" className="hover:text-indigo-600">0358 993 264 (Zalo)</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-indigo-600" />
-                <span>admin@devstudent.vn</span>
+                <a href="mailto:hkhadev@gmail.com" className="hover:text-indigo-600">hkhadev@gmail.com</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Facebook size={18} className="text-indigo-600" />
+                <a href="https://fb.me/kha1999" className="hover:text-indigo-600">fb.me/kha1999</a>
               </li>
             </ul>
           </div>

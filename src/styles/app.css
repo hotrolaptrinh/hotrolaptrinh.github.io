@@ -7,18 +7,21 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
 .gradient-text {
   background: linear-gradient(to right, #2563eb, #10b981);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* Custom scrollbar for chat */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Remove default outlines on form controls */
@@ -45,3 +48,35 @@ select:focus-visible,
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* Custom setup */
+code {
+  color: var(--color-gray-300);
+  background-color: var(--color-slate-800);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  font-family: var(--font-mono);
+  padding: calc(var(--spacing) * 3);
+  border-radius: var(--radius-lg);
+  margin-top: calc(var(--spacing) * 2);
+  display: block;
+}
+em {
+  font-style: italic;
+}
+
+#desc h1,#desc h2,#desc h3 {
+  font-weight: var(--font-weight-bold)  ;
+}
+#desc h1 {
+  font-size: var(--text-lg);
+}
+
+#desc h2 {
+  font-size: var(--text-base);
+}
+
+#desc h3 {
+  font-size: var(--text-sm);
+}
+  

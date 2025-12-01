@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import type { Product } from '../types';
 import {
   ArrowLeft, Star, ShoppingCart, ShieldCheck,
-  Zap, Download, MessageSquare, CheckCircle,
+  BrushCleaning, Download, MessageSquare, BookOpenCheck,
   Monitor, Smartphone, Database, Server, Globe,
-  ZoomIn, Maximize, ChevronLeft, ChevronRight, X
+  ZoomIn, Maximize, ChevronLeft, ChevronRight, X, LifeBuoy
 } from 'lucide-react';
 import Markdown from 'react-markdown';
 
@@ -14,7 +14,7 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
-  const [activeTab, setActiveTab] = useState<'desc' | 'setup' | 'reviews'>('desc');
+  const [activeTab, setActiveTab] = useState<'desc' | 'setup' | 'changelog'>('desc');
   const [selectedImage, setSelectedImage] = useState(product.image);
   const [startIndex, setStartIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -25,8 +25,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
     setStartIndex(0);
   }, [product]);
 
-  const thumbnails = product.listthumbnail || [];
-  const visibleThumbnails = thumbnails.slice(startIndex, startIndex + 4);
+  const thumbnails = product.images || [];
+  const visibleThumbnails = thumbnails.slice(startIndex, startIndex + 3);
 
   const handleNext = () => {
     if (startIndex + 4 < thumbnails.length) {
@@ -41,12 +41,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
   };
 
   const features = [
-    "Source code sạch, chia module rõ ràng (Clean Architecture)",
-    "Đầy đủ chức năng CRUD và Auth (Đăng nhập/Đăng ký/Quên mật khẩu)",
-    "Tích hợp sẵn cổng thanh toán (Momo/VNPAY/Stripe demo)",
-    "Giao diện Responsive 100% trên Mobile & Tablet",
-    "Bao gồm file báo cáo .docx và Slide thuyết trình .pptx",
-    "Hỗ trợ setup qua UltraViewer miễn phí"
+    "Source code sạch",
+    "Không chứa mã độc",
+    "Có báo cáo",
+    "Cam kết hỗ trợ"
   ];
 
   return (
@@ -62,8 +60,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
             Quay lại danh sách
           </button>
 
-          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
+          <div className="bg-gray-50 rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="bg-white grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8">
 
               {/* Left Column: Images */}
               <div className="p-6 lg:p-10 bg-gray-50/50">
@@ -112,7 +110,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
                       </button>
                     )}
 
-                    <div className="flex-1 grid grid-cols-4 gap-2">
+                    <div className="flex-1 grid grid-cols-3 gap-2">
                       {visibleThumbnails.map((thumbnail, index) => (
                         <div
                           key={startIndex + index}
@@ -150,10 +148,24 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100">
-                    <Zap className="text-yellow-500 w-8 h-8" />
+                    <BrushCleaning className="text-green-500 w-8 h-8" />
                     <div>
-                      <p className="font-bold text-gray-900 text-sm">Tải ngay</p>
-                      <p className="text-xs text-gray-500">Link Google Drive</p>
+                      <p className="font-bold text-gray-900 text-sm">Không có mã độc</p>
+                      <p className="text-xs text-gray-500">Source code sạch, rõ ràng</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100">
+                    <LifeBuoy className="text-green-500 w-8 h-8" />
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">Cam kết hỗ trợ</p>
+                      <p className="text-xs text-gray-500">Ultraview, 24/7</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100">
+                    <BookOpenCheck className="text-green-500 w-8 h-8" />
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">Đầy đủ báo cáo</p>
+                      <p className="text-xs text-gray-500">Word, PowerPoint, Sơ đồ</p>
                     </div>
                   </div>
                 </div>
@@ -241,39 +253,32 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
                   onClick={() => setActiveTab('desc')}
                   className={`px-8 py-4 font-medium text-sm focus:outline-none border-b-2 transition-colors ${activeTab === 'desc' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
                 >
-                  Mô tả chi tiết
+                  <span className="hidden md:inline">Mô tả chi tiết</span>
+                  <span className="md:hidden">Mô tả</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('setup')}
                   className={`px-8 py-4 font-medium text-sm focus:outline-none border-b-2 transition-colors ${activeTab === 'setup' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
                 >
-                  Hướng dẫn cài đặt
+                  <span className="hidden md:inline">Hướng dẫn cài đặt</span>
+                  <span className="md:hidden">Cài đặt</span>
                 </button>
                 <button
-                  onClick={() => setActiveTab('reviews')}
-                  className={`px-8 py-4 font-medium text-sm focus:outline-none border-b-2 transition-colors ${activeTab === 'reviews' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+                  onClick={() => setActiveTab('changelog')}
+                  className={`px-8 py-4 font-medium text-sm focus:outline-none border-b-2 transition-colors ${activeTab === 'changelog' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
                 >
-                  Đánh giá (24)
+                  <span className="hidden md:inline">Change log</span>
+                  <span className="md:hidden">Log</span>
                 </button>
               </div>
 
-              <div className="p-6 lg:p-10 bg-gray-50 min-h-[300px]">
+              <div className="p-4 lg:p-6 bg-white min-h-[300px]">
                 {activeTab === 'desc' && (
-                  <div className="max-w-4xl">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Tổng quan đồ án</h3>
+                  <div className="max-w-4xl" id="desc">
                     <div className="text-gray-600 mb-6 leading-relaxed">
                       <Markdown>{product.description}</Markdown>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Các tính năng chính</h3>
-                    <ul className="grid md:grid-cols-2 gap-3 mb-8">
-                      {features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 )}
 
@@ -283,83 +288,44 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack }) => {
                       <Monitor className="text-blue-600 flex-shrink-0" />
                       <div>
                         <h4 className="font-bold text-blue-900">Yêu cầu hệ thống</h4>
-                        <p className="text-sm text-blue-700">Node.js v14+, MongoDB 4.0+ (hoặc MySQL 8.0), VS Code.</p>
+                        <ul>
+                          {product.require.map((require, i) => (
+                            <li key={i} className="mb-1">
+                              <span>{require}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
 
                     <ol className="relative border-l border-gray-200 ml-3 space-y-8 mt-6">
-                      <li className="mb-10 ml-6">
-                        <span className="absolute flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full -left-4 ring-4 ring-white">
-                          <span className="font-bold text-indigo-600">1</span>
-                        </span>
-                        <h3 className="font-bold text-gray-900 mb-1">Tải về & Giải nén</h3>
-                        <p className="text-gray-500 text-sm">Sau khi thanh toán, tải file .zip và giải nén vào thư mục làm việc.</p>
-                      </li>
-                      <li className="mb-10 ml-6">
-                        <span className="absolute flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full -left-4 ring-4 ring-white">
-                          <span className="font-bold text-indigo-600">2</span>
-                        </span>
-                        <h3 className="font-bold text-gray-900 mb-1">Cài đặt thư viện (Dependencies)</h3>
-                        <div className="bg-slate-800 text-gray-300 p-3 rounded-lg font-mono text-sm mt-2">
-                          npm install
-                        </div>
-                      </li>
-                      <li className="ml-6">
-                        <span className="absolute flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full -left-4 ring-4 ring-white">
-                          <span className="font-bold text-indigo-600">3</span>
-                        </span>
-                        <h3 className="font-bold text-gray-900 mb-1">Khởi chạy dự án</h3>
-                        <div className="bg-slate-800 text-gray-300 p-3 rounded-lg font-mono text-sm mt-2">
-                          npm run dev
-                        </div>
-                        <p className="text-gray-500 text-sm mt-2">Truy cập http://localhost:3000 để xem kết quả.</p>
-                      </li>
+                      {product.setup.map((setup, i) => (
+                        <li className="mb-10 ml-6" key={i}>
+                          <span className="absolute flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full -left-4 ring-4 ring-white">
+                            <span className="font-bold text-indigo-600">{i + 1}</span>
+                          </span>
+                          <h3 className="font-bold text-gray-900 mb-1">{setup.title}</h3>
+                          <Markdown>{setup.description}</Markdown>
+                        </li>
+                      ))}
+
                     </ol>
                   </div>
                 )}
 
-                {activeTab === 'reviews' && (
+                {activeTab === 'changelog' && (
                   <div className="max-w-4xl">
-                    <div className="text-center py-10 bg-white rounded-xl border border-gray-200 mb-6">
-                      <div className="text-5xl font-extrabold text-gray-900 mb-2">{product.rating}</div>
-                      <div className="flex justify-center gap-1 mb-2 text-yellow-400">
-                        <Star fill="currentColor" />
-                        <Star fill="currentColor" />
-                        <Star fill="currentColor" />
-                        <Star fill="currentColor" />
-                        <Star fill="currentColor" className={product.rating < 5 ? 'text-gray-300' : ''} />
-                      </div>
-                      <p className="text-gray-500">Dựa trên 24 đánh giá xác thực</p>
-                    </div>
-
-                    {/* Mock Reviews */}
-                    <div className="space-y-4">
-                      {[1, 2].map((i) => (
-                        <div key={i} className="bg-white p-6 rounded-xl border border-gray-100">
-                          <div className="flex justify-between items-start mb-2">
-                            <div className="flex items-center gap-2">
-                              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">U{i}</div>
-                              <div>
-                                <p className="font-bold text-gray-900">Nguyễn Văn {i === 1 ? 'A' : 'B'}</p>
-                                <div className="flex text-yellow-400 w-20">
-                                  <Star size={12} fill="currentColor" />
-                                  <Star size={12} fill="currentColor" />
-                                  <Star size={12} fill="currentColor" />
-                                  <Star size={12} fill="currentColor" />
-                                  <Star size={12} fill="currentColor" />
-                                </div>
-                              </div>
-                            </div>
-                            <span className="text-xs text-gray-400">2 ngày trước</span>
-                          </div>
-                          <p className="text-gray-600 text-sm">
-                            {i === 1
-                              ? "Code rất sạch, chạy phát ăn ngay. Tài liệu hướng dẫn chi tiết, mình làm đồ án được 9 điểm. Cảm ơn shop!"
-                              : "Support nhiệt tình, mình cài lỗi node_modules được admin ultraview fix trong 5 phút. Rất đáng tiền."}
-                          </p>
-                        </div>
+                    <ul className="relative border-l border-gray-200">
+                      {product.changelog.map((changelog, i) => (
+                        <li className="mb-10 ml-6" key={i}>
+                          <span className="absolute flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full -left-4 ring-4 ring-white">
+                            <span className="font-bold text-indigo-600">-</span>
+                          </span>
+                          <Markdown>{changelog}</Markdown>
+                        </li>
                       ))}
-                    </div>
+
+                    </ul>
                   </div>
                 )}
               </div>
