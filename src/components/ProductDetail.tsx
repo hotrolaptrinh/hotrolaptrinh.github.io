@@ -7,6 +7,7 @@ import {
   ZoomIn, Maximize, ChevronLeft, ChevronRight, X, LifeBuoy
 } from 'lucide-react';
 import Markdown from 'react-markdown';
+import ContactModal from './ContactModal';
 
 interface ProductDetailProps {
   product: Product;
@@ -18,6 +19,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   React.useEffect(() => {
     setSelectedImage(product.image);
@@ -233,7 +235,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
                 {/* Actions */}
                 <div className="mt-auto flex flex-col sm:flex-row gap-4">
-                  <button className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-4 px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => setIsContactModalOpen(true)}
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-4 px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                  >
                     <Download size={24} />
                     Mua ngay
                   </button>
@@ -349,6 +354,12 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           />
         </div>
       )}
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </>
   );
 };
