@@ -215,12 +215,12 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <div className="mt-auto flex flex-row gap-2 sm:gap-4">
                   <button
                     onClick={() => setIsContactModalOpen(true)}
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-4 px-4 sm:px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-2 sm:py-4 sm:px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                   >
                     <Download size={24} />
                     Tải về
                   </button>
-                  <a href={product.demo} target="_blank" className="flex-1 bg-white border-2 border-indigo-100 text-indigo-700 hover:bg-indigo-50 py-4 px-4 sm:px-8 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
+                  <a href={product.demo} target="_blank" className="flex-1 bg-white border-2 border-indigo-100 text-indigo-700 hover:bg-indigo-50 py-2 px-2 sm:py-4 sm:px-8 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
                     <View size={24} />
                     Xem demo
                   </a>
