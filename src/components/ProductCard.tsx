@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Product } from '../types';
-import { Star, ShoppingCart, Eye, Download } from 'lucide-react';
+import { ShoppingCart, Eye } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
@@ -39,19 +39,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <h3 className="font-bold text-gray-900 line-clamp-2 group-hover:text-indigo-600 transition-colors text-lg">
                         {product.title}
                     </h3>
-                </div>
-
-                {/* Rating & Sales */}
-                <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-                    <div className="flex items-center text-yellow-400">
-                        <Star size={14} fill="currentColor" />
-                        <span className="ml-1 font-medium text-gray-700">{product.rating}</span>
-                    </div>
-                    <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                    <div className="flex items-center gap-1">
-                        <Download size={14} />
-                        <span>{product.sales} đã mua</span>
-                    </div>
                 </div>
 
                 {/* Tech Stack Tags */}
