@@ -42,9 +42,21 @@ const product: Product = {
     changelog: project.data.changelog || [],
     require: project.data.require || [],
 };
+
+const rawDescription = product.desc || product.description || "Khám phá chi tiết sản phẩm tại CodeStore";
+const normalizedDescription = rawDescription.replace(/\s+/g, " ").trim();
+const seoDescription = normalizedDescription.slice(0, 160) || "Khám phá chi tiết sản phẩm tại CodeStore";
+
+const canonicalUrl = new URL(`/products/${project.slug}/`, Astro.site ?? "https://hotrolaptrinh.github.io/").toString();
 ---
 
-<Base title={`${product.title} - CodeStore`}>
+<Base
+    title={`${product.title} - CodeStore`}
+    description={seoDescription}
+    canonical={canonicalUrl}
+    ogImage={product.image}
+    siteName="CodeStore"
+>
     <div class="min-h-screen bg-white font-sans text-gray-900">
         <Navbar client:load />
         <main>

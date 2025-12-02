@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import type { Product } from '../types';
 import {
-  ArrowLeft, Star, ShoppingCart, ShieldCheck,
-  BrushCleaning, Download, MessageSquare, BookOpenCheck,
+  ArrowLeft, ShoppingCart, ShieldCheck,
+  BrushCleaning, Download, BookOpenCheck,
   Monitor, Smartphone, Database, Server, Globe,
   ZoomIn, Maximize, ChevronLeft, ChevronRight, X, LifeBuoy
 } from 'lucide-react';
@@ -183,22 +183,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
                   {product.title}
                 </h1>
-
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="flex items-center gap-1 bg-yellow-50 px-3 py-1 rounded-lg border border-yellow-100">
-                    <Star className="text-yellow-400 w-5 h-5 fill-current" />
-                    <span className="font-bold text-gray-900">{product.rating}</span>
-                    <span className="text-gray-400 text-sm">/ 5.0</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
-                    <Download className="w-4 h-4" />
-                    <span>{product.sales} lượt mua</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
-                    <MessageSquare className="w-4 h-4" />
-                    <span>24 đánh giá</span>
-                  </div>
-                </div>
 
                 <div className="flex items-end gap-3 mb-8 pb-8 border-b border-gray-100">
                   <span className="text-4xl font-extrabold text-indigo-600">
