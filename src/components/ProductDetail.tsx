@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import type { Product } from '../types';
 import {
-  ArrowLeft, ShoppingCart, ShieldCheck,
+  ArrowLeft, ShieldCheck,
   BrushCleaning, Download, BookOpenCheck,
   Monitor, Smartphone, Database, Server, Globe,
-  ZoomIn, Maximize, ChevronLeft, ChevronRight, X, LifeBuoy
+  ZoomIn, Maximize, ChevronLeft, ChevronRight, X, LifeBuoy,
+  View
 } from 'lucide-react';
 import Markdown from 'react-markdown';
 import ContactModal from './ContactModal';
@@ -40,13 +41,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
       setStartIndex(prev => prev - 1);
     }
   };
-
-  const features = [
-    "Source code sạch",
-    "Không chứa mã độc",
-    "Có báo cáo",
-    "Cam kết hỗ trợ"
-  ];
 
   return (
     <>
@@ -140,7 +134,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 )}
 
                 {/* Trust Badges */}
-                <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="mt-8 grid grid-cols-2 gap-1 md:gap-4">
                   <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100">
                     <ShieldCheck className="text-green-500 w-8 h-8" />
                     <div>
@@ -177,7 +171,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <div className="mb-2 flex items-center gap-2 text-sm text-gray-500">
                   <span>Tác giả: <span className="text-indigo-600 font-semibold underline decoration-dotted">{product.author}</span></span>
                   <span>•</span>
-                  <span>ID: #{product.id.padStart(4, '0')}</span>
+                  <span>Mã code: <span className="text-indigo-600 font-semibold">{product.id.split('-')[0].toUpperCase()}</span></span>
                 </div>
 
                 <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
@@ -218,16 +212,16 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 </p>
 
                 {/* Actions */}
-                <div className="mt-auto flex flex-col sm:flex-row gap-4">
+                <div className="mt-auto flex flex-row gap-2 sm:gap-4">
                   <button
                     onClick={() => setIsContactModalOpen(true)}
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-4 px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-4 px-4 sm:px-8 rounded-xl font-bold text-lg shadow-lg shadow-indigo-600/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
                   >
                     <Download size={24} />
-                    Mua ngay
+                    Tải về
                   </button>
-                  <a href={product.demo} target="_blank" className="flex-1 bg-white border-2 border-indigo-100 text-indigo-700 hover:bg-indigo-50 py-4 px-8 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
-                    <ShoppingCart size={24} />
+                  <a href={product.demo} target="_blank" className="flex-1 bg-white border-2 border-indigo-100 text-indigo-700 hover:bg-indigo-50 py-4 px-4 sm:px-8 rounded-xl font-bold text-lg transition-colors flex items-center justify-center gap-2">
+                    <View size={24} />
                     Xem demo
                   </a>
                 </div>

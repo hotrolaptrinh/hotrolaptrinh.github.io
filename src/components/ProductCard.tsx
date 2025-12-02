@@ -55,12 +55,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
                 <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
                     <div>
-                        <div className="text-xs text-gray-400 line-through">
-                            {product.originalPrice.toLocaleString('vi-VN')}đ
-                        </div>
-                        <div className="text-xl font-bold text-indigo-600">
+                        <span className="text-xl font-bold text-indigo-600">
                             {product.price.toLocaleString('vi-VN')}đ
-                        </div>
+                        </span>
+                        <span className="mx-2 text-xs text-gray-400 line-through">
+                            {product.originalPrice.toLocaleString('vi-VN')}đ
+                        </span>
                     </div>
                     <button
                         className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 p-2.5 rounded-xl transition-colors z-10 relative"

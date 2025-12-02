@@ -19,9 +19,9 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
 
-              <a href="https://fb.me/kha1999" className="text-gray-400 hover:text-blue-600"><Facebook size={20} /></a>
-              <a href="https://zalo.me/358993264" className="text-gray-400 hover:text-black"><MessageCircle size={20} /></a>
-              <a href="http://t.me/hkit9x" className="text-gray-400 hover:text-red-600"><Send size={20} /></a>
+              <a href="https://fb.me/kha1999" className="text-gray-400 hover:text-blue-600" target="_blank"><Facebook size={20} /></a>
+              <a href="https://zalo.me/358993264" className="text-gray-400 hover:text-black" target="_blank"><MessageCircle size={20} /></a>
+              <a href="http://t.me/hkit9x" className="text-gray-400 hover:text-red-600" target="_blank"><Send size={20} /></a>
             </div>
           </div>
 
@@ -50,15 +50,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-indigo-600" />
-                <a href="https://zalo.me/358993264" className="hover:text-indigo-600">0358 993 264 (Zalo)</a>
+                <a href="https://zalo.me/358993264" className="hover:text-indigo-600" target="_blank">0358 993 264 (Zalo)</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-indigo-600" />
-                <a href="mailto:hkhadev@gmail.com" className="hover:text-indigo-600">hkhadev@gmail.com</a>
+                <a href="mailto:hkhadev@gmail.com" className="hover:text-indigo-600" target="_blank">hkhadev@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Facebook size={18} className="text-indigo-600" />
-                <a href="https://fb.me/kha1999" className="hover:text-indigo-600">fb.me/kha1999</a>
+                <a href="https://fb.me/kha1999" className="hover:text-indigo-600" target="_blank">fb.me/kha1999</a>
               </li>
             </ul>
           </div>

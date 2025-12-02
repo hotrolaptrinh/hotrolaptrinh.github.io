@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
                 placeholder="Bạn đang tìm code gì? (VD: Web bán hàng, App đặt lịch...)" 
                 className="w-full p-4 text-gray-700 text-lg outline-none placeholder:text-gray-400 bg-transparent"
               />
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition-all hidden sm:block">
+              <button className="min-w-[200px] bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition-all hidden sm:block">
                 Tìm kiếm
               </button>
            </div>

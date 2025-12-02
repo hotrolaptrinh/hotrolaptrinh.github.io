@@ -42,12 +42,12 @@ const App: React.FC<AppProps> = ({ products }) => {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
-      <Navbar onNavigateToShop={handleNavigateToShop} onLogoClick={handleLogoClick} />
+      <Navbar/>
       <main>
         {currentView === 'product-detail' && selectedProduct ? (
-          <ProductDetail product={selectedProduct} onBack={handleBackToHome} />
+          <ProductDetail product={selectedProduct} />
         ) : currentView === 'all-products' ? (
-          <AllProducts products={products} onProductSelect={handleProductSelect} />
+          <AllProducts products={products} />
         ) : (
           <>
             {/* Ẩn Hero và Features trên Mobile, chỉ hiện từ màn hình tablet (md) trở lên */}
@@ -59,8 +59,6 @@ const App: React.FC<AppProps> = ({ products }) => {
             <div className="pt-24 md:pt-0"> {/* Padding top cho mobile vì navbar fixed */}
               <ProductList
                 products={products}
-                onProductSelect={handleProductSelect}
-                onViewAll={handleNavigateToShop}
               />
             </div>
 
