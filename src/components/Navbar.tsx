@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X, Code2, ShoppingCart, Search } from 'lucide-react';
+import { Menu, X, Code2, Search } from 'lucide-react';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [cartCount] = useState(2); // Mock cart count
 
     return (
         <nav className="fixed w-full bg-white/95 backdrop-blur-md z-40 border-b border-gray-100 shadow-sm">
@@ -54,12 +53,6 @@ const Navbar: React.FC = () => {
                             }}
                         >
                             <Search size={24} />
-                        </button>
-                        <button className="relative p-2 text-gray-600">
-                            <ShoppingCart size={24} />
-                            <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
-                                {cartCount}
-                            </span>
                         </button>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
