@@ -4,7 +4,7 @@ title: "Web Quản lý cửa hàng bán phụ kiện quà tặng"
 date: 2025-11-25
 category: "web"
 price: 250000
-sale: 225000
+sale: 0
 thumbnail: "/img/2/screenshot.png"
 images: [
     "/img/2/screenshot.png",

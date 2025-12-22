@@ -49,7 +49,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           {/* Breadcrumb & Back */}
           <a
             href="/products"
-            className="flex items-center text-gray-500 hover:text-indigo-600 mb-6 transition-colors font-medium group inline-flex"
+            className="flex items-center text-gray-500 hover:text-indigo-600 mb-6 transition-colors font-medium group"
           >
             <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
             Quay lại danh sách
@@ -182,9 +182,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                   <span className="text-4xl font-extrabold text-indigo-600">
                     {product.price.toLocaleString('vi-VN')}đ
                   </span>
-                  <span className="text-xl text-gray-400 line-through mb-1">
-                    {product.originalPrice.toLocaleString('vi-VN')}đ
-                  </span>
+                    {product.originalPrice > 0 ? (
+                    <span className="text-xl text-gray-400 line-through mb-1">
+                      {product.originalPrice.toLocaleString('vi-VN')}đ
+                    </span>
+                    ) : (
+                    <span className="text-xl text-gray-500 mb-1">Liên hệ</span>
+                    )}
                   <span className="mb-2 bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded">
                     -{(100 - (product.price / product.originalPrice) * 100).toFixed(0)}%
                   </span>

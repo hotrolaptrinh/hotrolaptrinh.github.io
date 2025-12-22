@@ -4,7 +4,7 @@ title: "Web thương mại điện tử bán Văn phòng phẩm Laravel PHP"
 date: 2025-11-20
 category: "web"
 price: 250000
-sale: 225000
+sale: 0
 thumbnail: "/img/1/1.png"
 images: [
     "/img/1/1.png",

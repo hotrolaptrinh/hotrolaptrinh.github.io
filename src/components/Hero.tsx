@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
-          Hàng ngàn đồ án mẫu, source code React, Node.js, Mobile App, AI... đã được kiểm duyệt.
+          Hàng ngàn đồ án mẫu, source code PHP, Python, React, Node.js, Mobile App... đã được kiểm duyệt.
           Code sạch, chạy ngon, đầy đủ báo cáo.
         </p>
 
@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
               <Search className="text-gray-400 ml-4 w-6 h-6" />
               <input 
                 type="text" 
-                placeholder="Bạn đang tìm code gì? (VD: Web bán hàng, App đặt lịch...)" 
+                placeholder="Bạn đang tìm code gì? (VD: Web bán hàng, App quản lý...)" 
                 className="w-full p-4 text-gray-700 text-lg outline-none placeholder:text-gray-400 bg-transparent"
               />
               <button className="min-w-[200px] bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition-all hidden sm:block">

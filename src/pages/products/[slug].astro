@@ -43,19 +43,19 @@ const product: Product = {
     require: project.data.require || [],
 };
 
-const rawDescription = product.desc || product.description || "Khám phá chi tiết sản phẩm tại CodeStore";
+const rawDescription = product.desc || product.description || "Khám phá chi tiết sản phẩm tại LapTrinh.Site";
 const normalizedDescription = rawDescription.replace(/\s+/g, " ").trim();
-const seoDescription = normalizedDescription.slice(0, 160) || "Khám phá chi tiết sản phẩm tại CodeStore";
+const seoDescription = normalizedDescription.slice(0, 160) || "Khám phá chi tiết sản phẩm tại LapTrinh.Site";
 
-const canonicalUrl = new URL(`/products/${project.slug}/`, Astro.site ?? "https://hotrolaptrinh.github.io/").toString();
+const canonicalUrl = new URL(`/products/${project.slug}/`, Astro.site ?? "https://laptrinh.site").toString();
 ---
 
 <Base
-    title={`${product.title} - CodeStore`}
+    title={`${product.title} - LapTrinh.Site`}
     description={seoDescription}
     canonical={canonicalUrl}
     ogImage={product.image}
-    siteName="CodeStore"
+    siteName="LapTrinh.Site"
 >
     <div class="min-h-screen bg-white font-sans text-gray-900">
         <Navbar client:load />

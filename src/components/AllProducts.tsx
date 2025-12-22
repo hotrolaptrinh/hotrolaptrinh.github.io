@@ -191,6 +191,7 @@ const AllProducts: React.FC<AllProductsProps> = ({ products }) => {
                         {totalPages > 1 && (
                             <div className="mt-12 flex justify-center items-center gap-2">
                                 <button
+                                    title='Trang trước'
                                     onClick={() => handlePageChange(currentPage - 1)}
                                     disabled={currentPage === 1}
                                     className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -200,6 +201,7 @@ const AllProducts: React.FC<AllProductsProps> = ({ products }) => {
 
                                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                                     <button
+                                        title={'Trang số ' + page}
                                         key={page}
                                         onClick={() => handlePageChange(page)}
                                         className={`w-10 h-10 rounded-lg font-medium transition-colors ${currentPage === page
@@ -212,6 +214,7 @@ const AllProducts: React.FC<AllProductsProps> = ({ products }) => {
                                 ))}
 
                                 <button
+                                    title='Trang tiếp'
                                     onClick={() => handlePageChange(currentPage + 1)}
                                     disabled={currentPage === totalPages}
                                     className="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"

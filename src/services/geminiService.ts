@@ -5,7 +5,7 @@ import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const SYSTEM_INSTRUCTION = `
-Bạn là "Dev Bot" - trợ lý ảo của sàn thương mại điện tử "CodeStore" - nơi bán source code cho sinh viên.
+Bạn là "Dev Bot" - trợ lý ảo của sàn thương mại điện tử "LapTrinh.Site" - nơi bán source code cho sinh viên.
 Khách hàng của bạn là sinh viên IT tìm code mẫu.
 
 Dữ liệu sản phẩm hiện có trong kho (hãy gợi ý dựa trên list này):

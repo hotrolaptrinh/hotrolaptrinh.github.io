@@ -17,8 +17,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
+                    />
+
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-md text-xs font-bold text-indigo-600 uppercase tracking-wide">
                     {product.category}
                 </div>
@@ -58,11 +58,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         <span className="text-xl font-bold text-indigo-600">
                             {product.price.toLocaleString('vi-VN')}đ
                         </span>
-                        <span className="mx-2 text-xs text-gray-400 line-through">
+                        <span className="mx-2 text-xs text-gray-700 line-through">
                             {product.originalPrice.toLocaleString('vi-VN')}đ
                         </span>
                     </div>
                     <button
+                        title='Xem code'
                         className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 p-2.5 rounded-xl transition-colors z-10 relative"
                         onClick={(e) => {
                             e.preventDefault(); // Prevent navigation when clicking add to cart

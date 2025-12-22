@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
               <Code2 size={24} strokeWidth={2.5} />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl tracking-tight text-slate-800 leading-none group-hover:text-indigo-600 transition-colors">Code<span className="text-indigo-600">Store</span></span>
-              <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Marketplace</span>
+              <span className="font-bold text-xl tracking-tight text-slate-800 leading-none group-hover:text-indigo-600 transition-colors">LapTrinh<span className="text-indigo-600">Site</span></span>
+              <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Code đồ án CNTT</span>
             </div>
           </a>
 

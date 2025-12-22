@@ -19,9 +19,9 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
 
-              <a href="https://fb.me/kha1999" className="text-gray-400 hover:text-blue-600" target="_blank"><Facebook size={20} /></a>
-              <a href="https://zalo.me/358993264" className="text-gray-400 hover:text-black" target="_blank"><MessageCircle size={20} /></a>
-              <a href="http://t.me/hkit9x" className="text-gray-400 hover:text-red-600" target="_blank"><Send size={20} /></a>
+              <a href="https://fb.me/kha1999" className="text-gray-400 hover:text-blue-600" target="_blank" title='Xem facebook của tôi'><Facebook size={20} /></a>
+              <a href="https://zalo.me/358993264" className="text-gray-400 hover:text-black" target="_blank" title='Xem zalo của tôi'><MessageCircle size={20} /></a>
+              <a href="http://t.me/hkit9x" className="text-gray-400 hover:text-red-600" target="_blank" title='Xem telegram của tôi'><Send size={20} /></a>
             </div>
           </div>
 
@@ -50,15 +50,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-gray-500">
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-indigo-600" />
-                <a href="https://zalo.me/358993264" className="hover:text-indigo-600" target="_blank">0358 993 264 (Zalo)</a>
+                <a href="https://zalo.me/358993264" className="hover:text-indigo-600" target="_blank" title='Gọi cho 0358 993 264'>0358 993 264 (Zalo)</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-indigo-600" />
-                <a href="mailto:hkhadev@gmail.com" className="hover:text-indigo-600" target="_blank">hkhadev@gmail.com</a>
+                <a href="mailto:hkhadev@gmail.com" className="hover:text-indigo-600" target="_blank" title='Gửi mail cho hkhadev@gmail.com'>hkhadev@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Facebook size={18} className="text-indigo-600" />
-                <a href="https://fb.me/kha1999" className="hover:text-indigo-600" target="_blank">fb.me/kha1999</a>
+                <a href="https://fb.me/kha1999" className="hover:text-indigo-600" target="_blank" title='Đến Facebook của tôi'>fb.me/kha1999</a>
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>© 2024 DevStudent Store. Code for learning purposes only.</p>
+          <p>© 2025 LapTrinh.Site. Hỗ trợ đồ án sinh viên</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-gray-600">Điều khoản sử dụng</a>
             <a href="#" className="hover:text-gray-600">Bảo mật thông tin</a>
